@@ -68,8 +68,10 @@ spec:
     }
   }
   stages {
-    steps {
-      sh "echo my job"
+    stage("Initialize") {
+      steps {
+        sh "echo my job"
+      }
     }
   }  
 }  
