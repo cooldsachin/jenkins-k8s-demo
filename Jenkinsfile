@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      //label "angular-slave"
+      label "angular-slave"
       defaultContainer "jnlp"
       yaml """
 apiVersion: v1
@@ -10,7 +10,7 @@ metadata:
   labels:
     component: ci
 spec:
-  serviceAccount: default
+  serviceAccount: cd-jenkins
   volumes:
   - name: dockersock
     hostPath:
