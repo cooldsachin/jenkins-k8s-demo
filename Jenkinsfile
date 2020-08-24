@@ -67,4 +67,9 @@ spec:
 """
     }
   }
+  stages {
+    steps {
+      sh "echo my job"
+    }
+  }  
 }  
