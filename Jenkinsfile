@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      label 'parent-pod'
+      label 'angular-slave'
       yaml """
 spec:
   containers:
