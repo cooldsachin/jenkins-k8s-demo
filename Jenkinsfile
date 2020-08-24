@@ -10,6 +10,7 @@ metadata:
   labels:
     component: ci
 spec:
+  serviceAccount: default
   volumes:
   - name: dockersock
     hostPath:
