@@ -29,7 +29,9 @@ spec:
 """
             }
         }
-      
+      steps {
+        sh "echo my job"
+      }  
     }
   }
 }
