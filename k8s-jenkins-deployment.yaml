@@ -14,18 +14,18 @@ spec:
       labels:
         app: k8s-jenkins
     spec:
-	  serviceAccount: default
+      serviceAccountName: default
       containers:
       - name: jenkins
         image: jenkins/jenkins
-		imagePullPolicy: Never
-        ports:
-		  - containerPort: 8080
-		  - containerPort: 50000
-		volumeMounts:
-            - name: k8s-jenkins-persistentstorage
-              mountPath: /var/lib/jenkins
-      volumes:
-        - name: k8s-jenkins-persistentstorage
-          persistentVolumeClaim:
-            claimName: k8s-jenkins-pvclaim
+	imagePullPolicy: Never
+	ports:
+	  - containerPort: 8080
+	  - containerPort: 50000
+	volumeMounts:
+	  - name: k8s-jenkins-persistentstorage
+	    mountPath: /var/lib/jenkins
+     volumes:
+       - name: k8s-jenkins-persistentstorage
+         persistentVolumeClaim:
+	   claimName: k8s-jenkins-pvclaim
