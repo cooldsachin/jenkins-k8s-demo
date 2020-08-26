@@ -1,4 +1,7 @@
 pipeline {
+  options {
+    timeout (time: 35, unit:"MINUTES")
+  }
   agent {
     kubernetes {
       label "my-angular-slave"
@@ -67,6 +70,19 @@ spec:
 """
     }
   }
+  environment {
+    COMMITTER_EMAIL = sh (
+      returnStdout: true,
+      script: "git --no-pager show -s --format=\'%ae\'"
+    ).trim()
+    sh "echo ${COMMITTER_EMAIL}"
+    TAG_NAME = sh (
+      returnStdout: true,
+      script: 'git tag --points-at HEAD | awk NF'
+    ).trim()
+    sh "echo ${TAG_NAME}"
+  }
+
   stages {
     stage("Initialize") {
       steps {
