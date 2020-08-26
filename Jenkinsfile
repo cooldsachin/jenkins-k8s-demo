@@ -75,18 +75,19 @@ spec:
       returnStdout: true,
       script: "git --no-pager show -s --format=\'%ae\'"
     ).trim()
-    sh "echo ${COMMITTER_EMAIL}"
     TAG_NAME = sh (
       returnStdout: true,
       script: 'git tag --points-at HEAD | awk NF'
     ).trim()
-    sh "echo ${TAG_NAME}"
   }
 
   stages {
     stage("Initialize") {
       steps {
         sh "echo my job"
+        sh "echo ${COMMITTER_EMAIL}"
+        sh "echo ${TAG_NAME}"
+        
       }
     }
   }  
