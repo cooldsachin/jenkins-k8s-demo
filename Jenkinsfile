@@ -84,9 +84,20 @@ spec:
   stages {
     stage("Initialize") {
       steps {
-        sh "echo my job"
-        sh "echo ${COMMITTER_EMAIL}"
-        sh "echo ${TAG_NAME}"
+        container('gcloud') {
+          slackSend (color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+          sh 'gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS'
+          sh "gcloud config set project ${PROJECT_ID}"
+        }
+        container('docker') {
+          sh "apk update"
+          sh "apk add curl"
+          sh "curl -fsSL https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v2.0.0/docker-credential-gcr_linux_amd64-2.0.0.tar.gz | tar xz --to-stdout ./docker-credential-gcr > /usr/bin/docker-credential-gcr && chmod +x /usr/bin/docker-credential-gcr"
+          sh "docker-credential-gcr configure-docker"
+          sh 'docker --version'
+        }
+
+        
         
       }
     }
