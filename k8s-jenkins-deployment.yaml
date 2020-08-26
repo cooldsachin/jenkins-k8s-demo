@@ -23,9 +23,9 @@ spec:
 	  - containerPort: 8080
 	  - containerPort: 50000
 	volumeMounts:
-	  - name: k8s-jenkins-persistentstorage
+	  - name: jenkins-persistent-storage
 	    mountPath: /var/lib/jenkins
      volumes:
-       - name: k8s-jenkins-persistentstorage
+       - name: jenkins-persistent-storage
          persistentVolumeClaim:
-	   claimName: k8s-jenkins-pvclaim
+	   claimName: jenkins-pv-claim
