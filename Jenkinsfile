@@ -1,7 +1,7 @@
 pipeline {
   agent {
     kubernetes {
-      //label "angular-slave"
+      label "my-angular-slave"
       defaultContainer "jnlp"
       yaml """
 apiVersion: v1
