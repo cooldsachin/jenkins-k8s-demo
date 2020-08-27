@@ -39,7 +39,7 @@ spec:
     - cat
     env:
     - name: GOOGLE_APPLICATION_CREDENTIALS
-      value: /var/secrets/google/key.json1
+      value: /var/secrets/google/key.json
     tty: true
   - name: node
     image: node:lts-alpine
@@ -65,7 +65,7 @@ spec:
     - cat
     env:
     - name: GOOGLE_APPLICATION_CREDENTIALS
-      value: var/secrets/google/key.json1
+      value: var/secrets/google/key.json
     tty: true
 """
     }
