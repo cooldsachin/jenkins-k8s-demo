@@ -1,3 +1,5 @@
+def PROJECT_ID = "parabolic-rope-278721"
+
 pipeline {
   options {
     timeout (time: 35, unit:"MINUTES")
