@@ -98,6 +98,23 @@ spec:
           sh "docker-credential-gcr configure-docker"
           sh 'docker --version'
         }
+        container("node") {
+          sh "node -v"
+          sh "npm -v"
+          sh "npm install -g @angular/cli@latest"
+          sh "apk update && apk upgrade && \
+              echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
+              echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
+              apk add --no-cache \
+                chromium@edge \
+                nss@edge \
+                freetype@edge \
+                harfbuzz@edge \
+                ttf-freefont@edge"
+          //sh "npm install --save chromium"
+        }
+      }
+
 
         
         
