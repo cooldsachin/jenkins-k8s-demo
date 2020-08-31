@@ -15,7 +15,7 @@ metadata:
   labels:
     component: ci
 spec:
-  serviceAccount: default
+  serviceAccount: jenkins
   volumes:
   - name: dockersock
     hostPath:
