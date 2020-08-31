@@ -10,9 +10,6 @@ rules:
   - apiGroups: [""] # "" indicates the core API group
     resources: ["deployments"]
     verbs: ["create","delete","get","list","patch","update","watch"]
-  - apiGroups: ["apps"] # "" indicates the core API group
-    resources: ["deployments"]
-    verbs: ["create","delete","get","list","patch","update","watch"]
   - apiGroups: [""]
     resources: ["pods"]
     verbs: ["create","delete","get","list","patch","update","watch"]
