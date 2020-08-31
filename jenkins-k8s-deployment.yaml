@@ -24,7 +24,7 @@ spec:
           - containerPort: 50000
         volumeMounts:
           - name: jenkins-persistent-storage
-            mountPath: /var/lib/jenkins
+          mountPath: /var/lib/jenkins
      volumes:
        - name: jenkins-persistent-storage
          persistentVolumeClaim:
