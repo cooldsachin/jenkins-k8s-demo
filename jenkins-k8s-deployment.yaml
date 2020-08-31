@@ -18,14 +18,14 @@ spec:
       containers:
       - name: jenkins
         image: jenkins/jenkins
-	imagePullPolicy: Never
-	ports:
-	  - containerPort: 8080
-	  - containerPort: 50000
-	volumeMounts:
-	  - name: jenkins-persistent-storage
-	    mountPath: /var/lib/jenkins
+        imagePullPolicy: Never
+        ports:
+          - containerPort: 8080
+          - containerPort: 50000
+        volumeMounts:
+          - name: jenkins-persistent-storage
+            mountPath: /var/lib/jenkins
      volumes:
        - name: jenkins-persistent-storage
          persistentVolumeClaim:
-	   claimName: jenkins-pv-claim
+           claimName: jenkins-pv-claim
