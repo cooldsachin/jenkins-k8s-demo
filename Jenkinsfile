@@ -114,11 +114,6 @@ spec:
           //sh "npm install --save chromium"
         }
       }
-
-
-        
-        
-      }
     }
   }  
 }  
