@@ -14,6 +14,7 @@ A. Install Jenkins in K8s cluster
      kubectl apply -f jenkins-k8s-volume.yaml
      kubectl apply -f jenkins-k8s-deployment.yaml
      kubectl apply -f jenkins-k8s-service.yaml
+     kubectl apply -f jenkins-k8s-clusterbinding.yaml
      
   3. Run the following command to create a cluster role binding named "service reader pod".        
      Its "clusterrole" is "service reader", and its name is "default:default".
