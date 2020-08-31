@@ -22,7 +22,7 @@ A. Install Jenkins in K8s cluster
      kubectl create clusterrolebinding service-reader-pod --clusterrole=service-reader  --serviceaccount=default:default
 
   4. Login to Jenkins
-     Once you done with yaml execution, the external ip of k8s service and node port 30000 need to put on browser such as http://<External-IP>:30000 and Jenkins login page will        open and asking for initial password which can be retrieved from
+     Once you done with yaml execution, the external ip  of k8s service and node port 30000 need to put on browser such as http://<External-IP>:30000 and Jenkins login page will        open and asking for initial password which can be retrieved from
      kubctl logs <POD-NAME>
      At the bottom you will find password with pattern like - adsubjsbvcdbhcvfnhhfjkjfk
   
