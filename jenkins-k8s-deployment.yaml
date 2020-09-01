@@ -25,7 +25,7 @@ spec:
             - containerPort: 50000
           volumeMounts:
             - name: k8s-jenkins-persistent-storage
-              mountPath: /var/jenkins_home
+              mountPath: /var/lib/jenkins
       volumes:
         - name: k8s-jenkins-persistent-storage
           persistentVolumeClaim:
