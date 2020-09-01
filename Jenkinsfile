@@ -121,6 +121,7 @@ spec:
           sh "gcloud config set project ${PROJECT_ID}"
           sh "gcloud container clusters get-credentials kubernetes-cluster --zone southamerica-east1-a --project ${PROJECT_ID}"
           sh "kubectl apply -f ./nginx-deployment-service.yaml"
+        }  
       }
     }  
   }  
