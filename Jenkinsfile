@@ -43,6 +43,18 @@ spec:
     - name: GOOGLE_APPLICATION_CREDENTIALS
       value: /var/secrets/google/key.json
     tty: true
+  - name: kubectl
+    image: gcr.io/cloud-builders/kubectl
+    volumeMounts:
+    - name: google-cloud-key
+      readOnly: true
+      mountPath: "/var/secrets/google"
+    command:
+    - cat
+    env:
+    - name: GOOGLE_APPLICATION_CREDENTIALS
+      value: /var/secrets/google/key.json
+    tty: true
   - name: node
     image: node:lts-alpine
     env:
