@@ -113,7 +113,10 @@ spec:
                 ttf-freefont@edge"
           //sh "npm install --save chromium"
         }
-      }
+      } 
     }
+    stage("Deploy nginx image") {
+      
+    }  
   }  
 }  
