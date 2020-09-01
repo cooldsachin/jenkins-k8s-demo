@@ -116,7 +116,11 @@ spec:
     }
     stage("Deploy nginx image") {
       steps {
-        sh "kubectl apply -f ./nginx-deployment-service.yaml"
+        container('kubectl') {
+          sh 'gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS'
+          sh "gcloud config set project ${PROJECT_ID}"
+          sh "gcloud container clusters get-credentials kubernetes-cluster --zone southamerica-east1-a --project ${PROJECT_ID}"
+          sh "kubectl apply -f ./nginx-deployment-service.yaml"
       }
     }  
   }  
