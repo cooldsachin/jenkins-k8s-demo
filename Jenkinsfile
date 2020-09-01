@@ -115,7 +115,9 @@ spec:
       } 
     }
     stage("Deploy nginx image") {
-      sh "kubectl apply -f ./nginx-deployment-service.yaml"
+      steps {
+        sh "kubectl apply -f ./nginx-deployment-service.yaml"
+      }
     }  
   }  
 }  
