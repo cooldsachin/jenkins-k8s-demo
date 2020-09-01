@@ -111,12 +111,11 @@ spec:
                 freetype@edge \
                 harfbuzz@edge \
                 ttf-freefont@edge"
-          //sh "npm install --save chromium"
         }
       } 
     }
     stage("Deploy nginx image") {
-      
+      sh "kubectl apply -f ./nginx-deployment-service.yaml"
     }  
   }  
 }  
