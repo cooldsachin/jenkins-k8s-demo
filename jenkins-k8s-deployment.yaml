@@ -1,14 +1,15 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: k8s-jenkins-deployment
   labels:
     app: k8s-jenkins
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: k8s-jenkins
+  strategy:
+    type: Recreate
   template:
     metadata:
       labels:
@@ -16,16 +17,16 @@ spec:
     spec:
       serviceAccountName: default
       containers:
-      - name: jenkins
-        image: jenkins/jenkins
-        imagePullPolicy: Never
-        ports:
-          - containerPort: 8080
-          - containerPort: 50000
-        volumeMounts:
-          - name: jenkins-persistent-storage
-          mountPath: /var/lib/jenkins
-     volumes:
-       - name: jenkins-persistent-storage
-         persistentVolumeClaim:
-           claimName: jenkins-pv-claim
+        - image: jenkins/jenkins
+          name: k8s-jenkins-container
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+            - containerPort: 50000
+          volumeMounts:
+            - name: k8s-jenkins-persistent-storage
+              mountPath: /var/jenkins_home
+      volumes:
+        - name: k8s-jenkins-persistent-storage
+          persistentVolumeClaim:
+            claimName: jenkins-pv-claim
