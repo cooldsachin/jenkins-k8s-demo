@@ -32,7 +32,7 @@ B. Configure CLoud (Kubernetes) in Jenkins
   
   2. It will ask to install plugin for cloud template - go to manage plugin and install Kubernetes plugin.
   
-  3. Once install go to configure cloud and configure k8s and its pod template. (Watch my Youtube video for configuration steps)
+  3. Once install go to configure cloud and configure k8s and its pod template. (Watch my Youtube video for configuration steps - https://www.youtube.com/watch?v=laAAzdw11dA)
   
 C. Configure service account to authenticate Gcloud using Jenkins
    1. Create service account in gcloud with proper role permissions - (IAM -> Service account)
@@ -43,8 +43,5 @@ C. Configure service account to authenticate Gcloud using Jenkins
    3. In Kubernetes, Import credentials as a Secret. Now that you have the service account key, you need a way to load it into your container.
       kubectl create secret generic registry-jenkins --from-file=key.json=PATH-TO-KEY-FILE.json
    
- D. To run Jenkins job using Kubernetes pod agent - Please check JenkinsFile and also you can watch video on how to run job using Kubernetes slave agent - 
+ D. To run Jenkins job using Kubernetes pod agent - Please check JenkinsFile and also you can watch video on how to run job using Kubernetes slave agent - https://www.youtube.com/watch?v=laAAzdw11dA
    
-    
-  
-  8. 
